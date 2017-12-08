@@ -1,0 +1,241 @@
+/* CSS Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*End of CSS Reset */
+/* general styles */
+/*box sizing fix*/
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+/*end of box sizing fix*/
+/*---------------------*/
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#universe {
+    background: black;
+    background: -moz-radial-gradient(#555, #000);/*gives sun a gradient*/
+    background: -webkit-radial-gradient(#555, #000);
+    background: radial-gradient(#555, #000);
+}
+
+#stars {
+    height: 100%;
+    width: 100%;
+    background: url('../img/stars.png');
+    position: relative;
+    z-index: 2;/*brings it above universe*/
+    -moz-animation: starPulse 4s infinite alternate;
+    -webkit-animation: starPulse 4s infinite alternate;
+    animation: starPulse 4s infinite alternate;
+}
+
+#sun {
+    height: 200px;
+    width: 200px;
+    background: orange;
+    background: -moz-radial-gradient(#f5c313, #ec7018);/*gives sun a gradient*/
+    background: -webkit-radial-gradient(#f5c313, #ec7018);
+    background: radial-gradient(#f5c313, #ec7018);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top:  -100px;/*helps to center it with top and left above*/
+    margin-left: -100px;
+    z-index: 5;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;/*makes it round*/
+    -moz-box-shadow: 0 0 50px #f5c91a;/*gives it a glow*/
+    -webkit-box-shadow: 0 0 50px #f5c91a;
+    box-shadow: 0 0 50px #f5c91a;
+    -moz-animation: sunFire 4s infinite alternate;
+    -webkit-moz-animation: sunFire 4s infinite alternate;
+    animation: sunFire 4s infinite alternate;
+}
+
+#earthOrbit {
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:  -300px;/*helps to center it with top and left above*/
+    margin-left: -300px;/*this is half of the size of the item, it is 600px*/
+    z-index: 5;
+    height: 600px;
+    width: 600px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;/*makes it round*/
+    -moz-animation: spin 30s linear infinite;
+    -webkit-animation: spin 30s linear infinite;
+    animation: spin 30s linear infinite;
+}
+
+#earth {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -40px;
+    -moz-animation: spin 3s linear infinite;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#moon {
+    height: 20px;
+    width: 20px;
+    background: gray;
+    background: -moz-radial-gradient(#ddd, #888);/*gives sun a gradient*/
+    background: -webkit-radial-gradient(#ddd, #888);
+    background: radial-gradient(#ddd, #888);
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;/*makes it round*/
+}
+
+#moonOrbit {
+    height: 120px;
+    width: 120px;
+    margin-top: -60px;
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: -20px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;/*makes it round*/
+    -moz-animation: spin 4s linear infinite reverse;
+    -webkit-animation: spin 4s linear infinite reverse;
+    animation: spin 4s linear infinite reverse;
+
+    
+}
+
+/*animation time!*/
+/*starpulse makes stars fade in and out*/
+@-moz-keyframes starPulse {
+    from { opacity: 1; }
+    to { opacity: 0.2; }
+}
+
+@-webkit-keyframes starPulse {
+    from { opacity: 1; }
+    to { opacity: 0.2; }
+}
+
+@keyframes starPulse {
+    from { opacity: 1; }
+    to { opacity: 0.2; }
+}
+
+/*makes the sun fire pulse in and out slightly*/
+@-moz-keyframes sunFire {
+    from {
+        -moz-box-shadow: 0 0 50px #f5c91a;
+        -webkit-box-shadow: 0 0 50px #f5c91a;
+        box-shadow: 0 0 50px #f5c91a;
+    }
+    to {
+        -moz-box-shadow: 0 0 100px #f5c91a;
+        -webkit-box-shadow: 0 0 100px #f5c91a;
+        box-shadow: 0 0 100px #f5c91a;
+    }
+}
+
+@-webkit-keyframes sunFire {
+    from {
+        -moz-box-shadow: 0 0 50px #f5c91a;
+        -webkit-box-shadow: 0 0 50px #f5c91a;
+        box-shadow: 0 0 50px #f5c91a;
+    }
+    to {
+        -moz-box-shadow: 0 0 100px #f5c91a;
+        -webkit-box-shadow: 0 0 100px #f5c91a;
+        box-shadow: 0 0 100px #f5c91a;
+    }
+}
+
+@keyframes sunFire {
+    from {
+        -moz-box-shadow: 0 0 50px #f5c91a;
+        -webkit-box-shadow: 0 0 50px #f5c91a;
+        box-shadow: 0 0 50px #f5c91a;
+    }
+    to {
+        -moz-box-shadow: 0 0 100px #f5c91a;
+        -webkit-box-shadow: 0 0 100px #f5c91a;
+        box-shadow: 0 0 100px #f5c91a;
+    }
+}
+
+/*makes things rotate*/
+@-moz-keyframes spin {
+    from { transform: rotate(0);}
+    to { transform: rotate(360deg);}
+}
+
+@-webkit-keyframes spin {
+    from { transform: rotate(0);}
+    to { transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: rotate(0);}
+    to { transform: rotate(360deg);}
+}
